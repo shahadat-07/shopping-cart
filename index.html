@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id= "quantity" type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><span id ="plus"><i class="fas fa-plus"></i></span></button>
+                           <button class="btn btn-default"><span id="phone-decrease"><i class="fas fa-minus"></i></span></button>
+                           <input id="phone-count" type="text" class="form-control text-center" value="1">
+                           <button class="btn btn-default"><span id="phone-increase"><i class="fas fa-plus"></i></span></button>
                         </div>
-                        <h5>$<span id = "price">1219</span></h5>
+                        <h5>$<span id="phone-total">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -44,11 +44,11 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="" type="text" class="form-control text-center" value="1">
+                           <button class="btn btn-default"><span id="plus"><i class="fas fa-plus"></i></span></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$<span id = subTotal>1278</span></h5>
+                        <h5>$<span id="">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$ <span id = "total"> 1278</span></h5>
+                        <h5>$ <span id=""> 1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -79,28 +79,31 @@
    </section>
 
    <script>
-      const plusBtn = document.getElementById("plus");
-      plusBtn.addEventListener("click",function(){
-         const quantity = document.getElementById("quantity").value;
-         const quantityNumber = parseFloat(quantity);
-         const addItem = quantityNumber + 1 ;
-         document.getElementById("quantity").value = addItem;
-         
-         const price = document.getElementById("price").innerText;
-         const priceValue = parseFloat(price);
-         const addPrice = priceValue + 1219;
-         document.getElementById("price").innerText = addPrice;
+      //plus button handler
 
-         const subTotal = document.getElementById("subTotal").innerText;
-         const subTotalValue = parseFloat(subTotal);
-         const addSubTotal = subTotalValue + 1219;
-         document.getElementById("subTotal").innerText = addSubTotal;
+      document.getElementById("phone-increase").addEventListener("click", function () {
+         const phoneInput = document.getElementById("phone-count");
+         const phoneCount = parseInt(phoneInput.value);
+         const phoneNewCount = phoneCount + 1;
+         phoneInput.value = phoneNewCount;
 
-         const total = document.getElementById("total").innerText;
-         const totalValue = parseFloat(total);
-         const addTotal = totalValue + 1219;
-         document.getElementById("total").innerText = addTotal;
+         const phoneTotal = phoneNewCount * 1219;
+         document.getElementById("phone-total").innerText = phoneTotal;
       });
+
+    // minus button handler
+
+      document.getElementById("phone-decrease").addEventListener("click", function () {
+         const phoneInput = document.getElementById("phone-count");
+         const phoneCount = parseInt(phoneInput.value);
+         const phoneNewCount = phoneCount - 1;
+         phoneInput.value = phoneNewCount;
+
+         const phoneTotal = phoneNewCount * 1219;
+         document.getElementById("phone-total").innerText = phoneTotal;
+      });
+
+
    </script>
 </body>
 
